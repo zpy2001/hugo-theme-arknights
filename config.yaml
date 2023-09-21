@@ -12,7 +12,7 @@ menus:
             icon: brand-github
 
 params:
-    useFrontPage: false
+    useFrontPage: true
     mainSections:
         - post
     featuredImageField: image
