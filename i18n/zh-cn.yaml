@@ -1,3 +1,6 @@
+name:
+    other: BlueSpace
+
 toggleMenu:
     other: 切换菜单
 
@@ -57,4 +60,4 @@ footer:
         other: Power by {{ .Generator }}
 
     designedBy:
-        other: 主题 {{ .Theme }} 由 {{ .DesignedBy }} 基于 {{ .DesignedByRaw }} {{ .ThemeRaw }} 设计
+        other: 主题 {{ .Theme }} 由 {{ .DesignedBy }} 基于 {{ .DesignedByRaw }} 的 {{ .ThemeRaw }} 设计

@@ -4,14 +4,58 @@
     {{ $filtered := ($pages | intersect $notHidden) }}
     {{ $pag := .Paginate ($filtered) }}
 
-    <section class="article-list">
-        {{ range $index, $element := $pag.Pages }}
-            {{ partial "article-list/default" . }}
-        {{ end }}
-    </section>
+    {{ if .Site.Params.useFrontPage }}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var toggleButton = document.getElementById("toggleButton");
+          var div_new = document.getElementById("div_new");
+          var div_raw = document.getElementById("div_raw");
+        
+          var isdiv_newVisible = true;
+        
+          toggleButton.addEventListener("click", function() {
+            if (isdiv_newVisible) {
+              div_new.style.display = "none";
+              div_raw.style.display = "block";
+            } else {
+              div_new.style.display = "block";
+              div_raw.style.display = "none";
+            }
+        
+            isdiv_newVisible = !isdiv_newVisible;
+          });
+        });
+    </script>
 
-    {{- partial "pagination.html" . -}}
-    {{- partial "footer/footer" . -}}
+    <div id="div_new" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background-image: url(https://i.ibb.co/1QWLqyy/front.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="container d-flex align-items-end justify-content-center" style="height: 50%;">
+            <div class="row align-top"><p class="h1 text-light" style="font-family:'Times New Roman', Times, serif">Welcome to {{ T "name" | safeHTML }} Blog</p></div>
+        </div>
+        <div class="container text-center d-flex align-items-center justify-content-center" style="height: 25%;">
+            <div class="row align-middle">
+                <button id="toggleButton" type="button" class="btn btn-outline-light d-flex flex-row justify-content-center">
+                    <i class="bi bi-list h2"></i>
+                    <p class="h2">&nbsp;Enter</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+
+    {{ if .Site.Params.useFrontPage }}
+    <div id="div_raw" style="display: none;">
+    {{ else }}
+    <div id="div_raw" style="display: block;">
+    {{ end }}
+        <section class="article-list">
+            {{ range $index, $element := $pag.Pages }}
+                {{ partial "article-list/default" . }}
+            {{ end }}
+        </section>
+
+        {{- partial "pagination.html" . -}}
+        {{- partial "footer/footer" . -}}
+    </div>
 {{ end }}
 
 {{ define "right-sidebar" }}

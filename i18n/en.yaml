@@ -1,3 +1,6 @@
+name:
+    other: BlueSpace
+
 toggleMenu:
     other: Toggle Menu
 
@@ -70,4 +73,4 @@ footer:
         other: Power by {{ .Generator }}
 
     designedBy:
-        other: Theme {{ .Theme }} designed by {{ .DesignedBy }} based on Theme {{ .ThemeRaw }} designed by {{ .DesignedByRaw }}
+        other: Theme {{ .Theme }} designed by {{ .DesignedBy }} based on Theme {{ .ThemeRaw }} by {{ .DesignedByRaw }}

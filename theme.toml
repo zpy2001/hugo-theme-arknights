@@ -3,12 +3,12 @@
 
 name = "Stack"
 license = "GPL-3.0-only"
-licenselink = "https://github.com/CaiJimmy/hugo-theme-stack/blob/master/LICENSE"
-description = "Card-style Hugo theme designed for bloggers"
-homepage = "https://github.com/CaiJimmy/hugo-theme-stack"
-demosite = "https://demo.stack.jimmycai.com"
+licenselink = "https://github.com/ETOgaosion/hugo-theme-arknights/blob/master/LICENSE"
+description = "Arknights Theme for Hugo, based on Jimmy's Stack Theme"
+homepage = "https://github.com/ETOgaosion/hugo-theme-arknights"
+demosite = "https://etogaosion.github.io"
 
-tags = ["blog", "responsive", "clean", "light", "dark", "personal"]
+tags = ["blog", "responsive", "clean", "light", "dark", "personal", "arknights"]
 
 features = [
     "disqus",
@@ -23,5 +23,5 @@ features = [
 min_version = "0.87.0"
 
 [author]
-name = "Jimmy Cai"
-homepage = "https://jimmycai.com"
+name = "Blue Space"
+homepage = "https://etogaosion.github.io"

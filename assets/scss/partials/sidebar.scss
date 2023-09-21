@@ -1,4 +1,16 @@
+[data-scheme="dark"] {
+    .sidebar {
+        background-color: rgba(0, 0, 0, 0.8);
+        &.sticky {
+            @include respond(md) {
+                position: sticky;
+            }
+        }
+    }
+}
+
 .sidebar {
+    background-color: rgba(255, 255, 255, 0.87);
     &.sticky {
         @include respond(md) {
             position: sticky;
@@ -7,6 +19,7 @@
 }
 
 .left-sidebar {
+    padding: 0 20px 0 20px;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -88,6 +101,7 @@
     transition: box-shadow 0.5s ease;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--sidebar-element-separation);
 
     @include respond(md) {
@@ -145,6 +159,7 @@
         font-weight: normal;
         margin: 0;
         font-size: 1.4rem;
+        line-height: 1.5;
 
         @include respond(2xl) {
             font-size: 1.6rem;

@@ -3,7 +3,16 @@ module:
         extended: true
         min: "0.87.0"
 
+menus:
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/ETOgaosion
+          params:
+            icon: brand-github
+
 params:
+    useFrontPage: false
     mainSections:
         - post
     featuredImageField: image
@@ -20,12 +29,12 @@ params:
 
     sidebar:
         compact: false
-        emoji:
-        subtitle:
+        emoji: ❤️
+        subtitle: 'CSer in ICT <br /> Research Direction:<br /> OS, Cloud, Virtualization, Game'
         avatar:
             enabled: true
             local: true
-            src: img/avatar.png
+            src: img/avatar.jpeg
 
     article:
         math: false
