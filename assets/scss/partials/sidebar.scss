@@ -1,16 +1,8 @@
-[data-scheme="dark"] {
-    .sidebar {
-        background-color: rgba(0, 0, 0, 0.8);
-        &.sticky {
-            @include respond(md) {
-                position: sticky;
-            }
-        }
-    }
-}
-
 .sidebar {
-    background-color: rgba(255, 255, 255, 0.87);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
     &.sticky {
         @include respond(md) {
             position: sticky;
@@ -18,16 +10,25 @@
     }
 }
 
-.left-sidebar {
-    padding: 0 20px 0 20px;
+[data-scheme="dark"] {
+    .left-sidebar-inside {
+        background-color: #000000cc;
+        height: 90vh;
+        padding: 0 20px 0 20px;
+        width: 25vw;
+    }
+}
+
+.left-sidebar-inside {
+    background-color: rgba(255, 255, 255, 0.87);
+    height: 90vh;
+    padding: 20px;
+    width: 20vw;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
     align-self: stretch;
     gap: var(--sidebar-element-separation);
-    max-width: none;
-    width: 100%;
-    position: relative;
 
     --sidebar-avatar-size: 100px;
     --sidebar-element-separation: 20px;
@@ -35,9 +36,6 @@
     --emoji-font-size: 20px;
 
     @include respond(md) {
-        width: auto;
-        padding-top: var(--main-top-padding);
-        padding-bottom: var(--main-top-padding);
         max-height: 100vh;
     }
 
@@ -81,7 +79,6 @@
 }
 
 .right-sidebar {
-    width: 100%;
     display: none;
     flex-direction: column;
     gap: var(--widget-separation);

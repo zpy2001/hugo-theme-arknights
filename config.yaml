@@ -12,7 +12,7 @@ menus:
             icon: brand-github
 
 params:
-    useFrontPage: true
+    useFrontPage: false
     mainSections:
         - post
     featuredImageField: image
@@ -41,7 +41,7 @@ params:
         toc: true
         readingTime: true
         license:
-            enabled: false
+            enabled: true
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
@@ -135,7 +135,7 @@ params:
         opengraph:
             enabled: false
             local: false
-            src:
+            src: https://i.ibb.co/ggwh61p/skadi-shanhu.jpg
 
     colorScheme:
         # Display toggle

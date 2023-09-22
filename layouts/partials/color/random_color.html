@@ -1,0 +1,42 @@
+<script>
+    var randum = function(max) {
+        return Math.round(Math.random() * max);
+    }
+    
+    var hexify = function(x) {
+        return ('0' + parseInt(x).toString(16)).slice(-2);
+    }
+    
+    var randex = function() {
+        return hexToRgbA('#' + hexify(randum(255)) + hexify(randum(255)) + hexify(randum(255)));
+    };
+
+    function hexToRgbA(hex){
+        var c;
+        if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+            c= hex.substring(1).split('');
+            if(c.length== 3){
+                c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+            }
+            c= '0x'+c.join('');
+            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',' + Math.random().toString() + ')';
+        }
+        throw new Error('Bad Hex');
+    }
+    
+    var blender = function() {
+        if (!!Math.round(Math.random())) {
+            return 'radial-gradient(circle at ' + randum(100) + '% ' + randum(100) + '%, ' + randex() + ', ' + randex() + ')';
+        } else {
+            return 'linear-gradient(' + randum(360) + 'deg, ' + randex() + ', ' + randex() + ')';
+        }
+    };
+    
+    var articleListTiles = document.getElementsByClassName('article-list--tile');
+    for(var i = 0; i < articleListTiles.length; i++) {
+        var cols = articleListTiles[i].getElementsByClassName('article-details');
+        for(i = 0; i < cols.length; i++) {
+            cols[i].style.backgroundImage = blender();
+        }
+    }
+</script>

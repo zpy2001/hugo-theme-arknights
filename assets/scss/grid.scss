@@ -4,12 +4,10 @@
 
     .left-sidebar {
         order: -3;
-        max-width: var(--left-sidebar-max-width);
     }
 
     .right-sidebar {
         order: -1;
-        max-width: var(--right-sidebar-max-width);
 
         /// Display right sidebar when min-width: lg
         @include respond(lg) {
@@ -39,13 +37,13 @@
 
     &.compact {
         @include respond(md) {
-            --left-sidebar-max-width: 25%;
+            --left-sidebar-max-width: 30%;
             max-width: 768px;
         }
 
         @include respond(lg) {
             max-width: 1024px;
-            --left-sidebar-max-width: 20%;
+            --left-sidebar-max-width: 25%;
         }
 
         @include respond(xl) {
@@ -74,40 +72,39 @@
     }
 }
 
-[data-scheme="dark"] {
-    main.main {
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 20px;
-        order: -2;
-        min-width: 0;
-        max-width: 100%;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        gap: var(--section-separation);
-    }
-}
-
 main.main {
-    background-color: rgba(255, 255, 255, 0.87);
-    padding: 20px;
     order: -2;
     min-width: 0;
-    max-width: 100%;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--section-separation);
+    width: 50vw;
+    padding: 5vh 0 5vh 0;
 }
 
 .main-container {
     min-height: 100vh;
-    align-items: flex-start;
-    /* top | right | bottom | left */
-    padding: var(--main-top-padding) 0 var(--main-top-padding) 0 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: var(--section-separation);
     
     @include respond(md) {
         padding: 0 20px;
     }
+}
+
+[data-scheme="dark"] {
+    .main-inside {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--section-separation);
+    }
+}
+
+.main-inside {
+    background-color: rgba(255, 255, 255, 0.87);
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--section-separation);
 }

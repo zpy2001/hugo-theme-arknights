@@ -43,9 +43,9 @@
     {{ end }}
 
     {{ if .Site.Params.useFrontPage }}
-    <div id="div_raw" style="display: none;">
+    <div id="div_raw" style="display: none; width: 100%;">
     {{ else }}
-    <div id="div_raw" style="display: block;">
+    <div id="div_raw" style="display: block; width: 100%;">
     {{ end }}
         <section class="article-list">
             {{ range $index, $element := $pag.Pages }}

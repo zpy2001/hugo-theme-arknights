@@ -5,10 +5,10 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 *   Global style
 */
 :root {
-    --main-top-padding: 35px;
+    --main-top-padding: 0;
 
     @include respond(xl) {
-        --main-top-padding: 50px;
+        --main-top-padding: 0;
     }
 
     --body-background: #f5f5fa;

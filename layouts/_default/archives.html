@@ -1,6 +1,6 @@
 {{ define "body-class" }}template-archives{{ end }}
 {{ define "main" }}
-    <header>
+    <header style="width: 100%;">
         {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "categories" -}}
         {{- $terms := $taxonomy.Pages -}}
         {{ if $terms }}
