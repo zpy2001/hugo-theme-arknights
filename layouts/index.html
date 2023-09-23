@@ -7,7 +7,7 @@
     {{ if .Site.Params.useFrontPage }}
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-          var toggleButton = document.getElementById("toggleButton");
+          var toggleButton = document.getElementById("start-button");
           var div_new = document.getElementById("div_new");
           var div_raw = document.getElementById("div_raw");
         
@@ -28,16 +28,77 @@
     </script>
 
     <div id="div_new" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background-image: url(https://i.ibb.co/1QWLqyy/front.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="container d-flex align-items-end justify-content-center" style="height: 50%;">
-            <div class="row align-top"><p class="h1 text-light" style="font-family:'Times New Roman', Times, serif">Welcome to {{ T "name" | safeHTML }} Blog</p></div>
+        <div style="height: 50%; display: flex; align-items: end; justify-content: center;">
+            <p style="font-family: geneva; font-size: 30px; color: white">Welcome to {{ T "name" | safeHTML }} Blog</p>
         </div>
-        <div class="container text-center d-flex align-items-center justify-content-center" style="height: 25%;">
-            <div class="row align-middle">
-                <button id="toggleButton" type="button" class="btn btn-outline-light d-flex flex-row justify-content-center">
-                    <i class="bi bi-list h2"></i>
-                    <p class="h2">&nbsp;Enter</p>
-                </button>
-            </div>
+        <div style="height: 35%; display: flex; align-items: center; justify-content: center;">
+            <canvas id="start-button" width="150" height="150"></canvas>
+            <script type="application/javascript">
+                var start = 0;
+
+                function sleep(delay) {
+                    var start = new Date().getTime();
+                    while (new Date().getTime() < start + delay);
+                }
+
+                function draw() {
+                    const canvas = document.getElementById("start-button");
+                    if (canvas.getContext) {
+                        const ctx = canvas.getContext('2d');
+                        ctx.clearRect(0, 0, 150, 150);
+                    
+                        ctx.fillStyle = '#ffd802';
+                        ctx.strokeStyle = '#ffd802';
+                        ctx.translate(75, 75);
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.moveTo(-1, -10);
+                        ctx.lineTo(-1, 0);
+                        ctx.lineTo(-1 + 2 * 5, -5);
+                        ctx.fill();
+                        
+                        ctx.beginPath();
+                        ctx.lineWidth = 4;
+                        ctx.moveTo(3, -25);
+                        ctx.lineTo(-27, 5);
+                        ctx.lineTo(3, 35);
+                        ctx.lineTo(33, 5);
+                        ctx.lineTo(3 - Math.sqrt(2), -25 - Math.sqrt(2));
+                        ctx.stroke();
+                    
+                        ctx.restore();
+                        ctx.beginPath();
+                        ctx.font = "italic 12px sans-serif";
+                        ctx.fillText("START", -16, 13);
+                    
+                        start += 2.7;
+                        if (start >= 53) {
+                        sleep(50);
+                        }
+                        start %= 53;
+                        var gap = start;
+                        ctx.restore();
+                        ctx.beginPath();
+                        ctx.lineWidth = 4;
+                        var opacity = ((53 - start)/53);
+                        ctx.strokeStyle = 'rgb(255,216, 2,' + opacity.toString() + ')';
+                        ctx.moveTo(3, -25 - gap);
+                        ctx.lineTo(-27 - gap, 5);
+                        ctx.lineTo(3, 35 + gap);
+                        ctx.lineTo(33 + gap, 5);
+                        ctx.lineTo(3 - Math.sqrt(2), -25 - Math.sqrt(2) - gap);
+                        ctx.stroke();
+                        ctx.translate(-75, -75);
+                        
+                        const fps = 1000/60;
+                        window.requestAnimationFrame(() => {
+                            setTimeout(this.draw.bind(this), fps);
+                        });
+                    }
+                }
+
+                window.requestAnimationFrame(draw);
+            </script>
         </div>
     </div>
     {{ end }}

@@ -140,7 +140,7 @@
             }
         }
         li.active-class > a {
-            border-left: var(--heading-border-size) solid var(--accent-color);
+            border-left: var(--heading-border-size) solid var(--accent-color) !important;
             font-weight: bold;
         }
 
@@ -246,7 +246,8 @@
             font-size: 0.75em;
 
             a {
-                text-decoration: underline;
+                text-decoration: none;
+                font-weight: bold;
             }
         }
     }
@@ -308,8 +309,7 @@
     }
 
     .highlight {
-        background-color: var(--pre-background-color);
-        padding: var(--card-padding);
+        padding: 20px var(--card-padding) 20px var(--card-padding);
         position: relative;
 
         &:hover {
@@ -332,7 +332,7 @@
     .copyCodeButton {
         position: absolute;
         top: calc(var(--card-padding));
-        right: calc(var(--card-padding));
+        right: calc(var(--card-padding) + 10px);
         background: var(--card-background);
         border: none;
         box-shadow: var(--shadow-l2);

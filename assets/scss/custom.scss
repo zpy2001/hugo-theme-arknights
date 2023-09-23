@@ -7,3 +7,35 @@
 .archives-group {
     width: 100%;
 }
+
+.diamond-shape {
+    height: 60px;
+    text-align: center;
+    transform: rotate(45deg);
+    width: 60px;
+    border-width: 5px;
+    border-color: #ffd802
+}
+
+.equilateralTriangle {
+	width: 0;
+	height: 0;
+	
+	border-right: 5px solid  transparent; 
+	border-left: 5px solid  transparent; 
+
+	border-bottom: 8.660254px solid #ffd802;  // (border-left-width 50px + border-right-width 50px) * 0.8660254 = 86.60254px  border-bottom-width = EquilateralTriangle height
+}
+
+.equilateralTriangle:before {
+    height: 100%;
+    width: 100%;
+    transform: rotateX(45deg) rotateZ(45deg);
+}
+
+.diamond:after {
+    height: calc(100% - 22px);  /* -22px is 2 * 10px gap on either side - 2px border on either side */
+    width: calc(100% - 22px);  /* -22px is 2 * 10px gap on either side - 2px border on either side */
+    border: 10px solid #ffd802;
+    transform: rotateX(45deg) rotateZ(45deg);
+}

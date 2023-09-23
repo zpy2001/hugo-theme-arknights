@@ -19,17 +19,14 @@
                 c= [c[0], c[0], c[1], c[1], c[2], c[2]];
             }
             c= '0x'+c.join('');
-            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',' + Math.random().toString() + ')';
+            return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',' + (Math.random() / 2 + 0.5).toString() + ')';
         }
         throw new Error('Bad Hex');
     }
     
     var blender = function() {
-        if (!!Math.round(Math.random())) {
-            return 'radial-gradient(circle at ' + randum(100) + '% ' + randum(100) + '%, ' + randex() + ', ' + randex() + ')';
-        } else {
-            return 'linear-gradient(' + randum(360) + 'deg, ' + randex() + ', ' + randex() + ')';
-        }
+        /*  return 'radial-gradient(circle at ' + randum(100) + '% ' + randum(100) + '%, ' + randex() + ', ' + randex() + ')';  */
+        return 'linear-gradient(' + randum(360) + 'deg, ' + randex() + ', ' + randex() + ')';
     };
     
     var articleListTiles = document.getElementsByClassName('article-list--tile');

@@ -12,7 +12,8 @@ menus:
             icon: brand-github
 
 params:
-    useFrontPage: false
+    useFrontPage: true
+    useChroma: true
     mainSections:
         - post
     featuredImageField: image
