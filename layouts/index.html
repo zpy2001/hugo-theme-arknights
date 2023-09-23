@@ -1,124 +1,95 @@
-{{ define "main" }}
-    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
-    {{ $filtered := ($pages | intersect $notHidden) }}
-    {{ $pag := .Paginate ($filtered) }}
+{{ if .Site.Params.useFrontPage }}
+<!DOCTYPE html>
+    <head></head>
+    <body>
+        <div id="div_new" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background-image: url(https://i.ibb.co/1QWLqyy/front.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <div style="height: 50%; display: flex; align-items: end; justify-content: center;">
+                <p style="font-family: geneva; font-weight:100; font-size: 30px; color: white">Welcome to {{ T "name" | safeHTML }} Blog</p>
+            </div>
+            <div style="height: 35%; display: flex; align-items: center; justify-content: center;">
+                <canvas id="start-button" width="150" height="150"></canvas>
+                <script type="application/javascript">
+                    var start = 0;
 
-    {{ if .Site.Params.useFrontPage }}
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          var toggleButton = document.getElementById("start-button");
-          var div_new = document.getElementById("div_new");
-          var div_raw = document.getElementById("div_raw");
-        
-          var isdiv_newVisible = true;
-        
-          toggleButton.addEventListener("click", function() {
-            if (isdiv_newVisible) {
-              div_new.style.display = "none";
-              div_raw.style.display = "block";
-            } else {
-              div_new.style.display = "block";
-              div_raw.style.display = "none";
-            }
-        
-            isdiv_newVisible = !isdiv_newVisible;
-          });
-        });
-    </script>
-
-    <div id="div_new" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background-image: url(https://i.ibb.co/1QWLqyy/front.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div style="height: 50%; display: flex; align-items: end; justify-content: center;">
-            <p style="font-family: geneva; font-size: 30px; color: white">Welcome to {{ T "name" | safeHTML }} Blog</p>
-        </div>
-        <div style="height: 35%; display: flex; align-items: center; justify-content: center;">
-            <canvas id="start-button" width="150" height="150"></canvas>
-            <script type="application/javascript">
-                var start = 0;
-
-                function sleep(delay) {
-                    var start = new Date().getTime();
-                    while (new Date().getTime() < start + delay);
-                }
-
-                function draw() {
-                    const canvas = document.getElementById("start-button");
-                    if (canvas.getContext) {
-                        const ctx = canvas.getContext('2d');
-                        ctx.clearRect(0, 0, 150, 150);
-                    
-                        ctx.fillStyle = '#ffd802';
-                        ctx.strokeStyle = '#ffd802';
-                        ctx.translate(75, 75);
-                        ctx.save();
-                        ctx.beginPath();
-                        ctx.moveTo(-1, -10);
-                        ctx.lineTo(-1, 0);
-                        ctx.lineTo(-1 + 2 * 5, -5);
-                        ctx.fill();
-                        
-                        ctx.beginPath();
-                        ctx.lineWidth = 4;
-                        ctx.moveTo(3, -25);
-                        ctx.lineTo(-27, 5);
-                        ctx.lineTo(3, 35);
-                        ctx.lineTo(33, 5);
-                        ctx.lineTo(3 - Math.sqrt(2), -25 - Math.sqrt(2));
-                        ctx.stroke();
-                    
-                        ctx.restore();
-                        ctx.beginPath();
-                        ctx.font = "italic 12px sans-serif";
-                        ctx.fillText("START", -16, 13);
-                    
-                        start += 2.7;
-                        if (start >= 53) {
-                        sleep(50);
-                        }
-                        start %= 53;
-                        var gap = start;
-                        ctx.restore();
-                        ctx.beginPath();
-                        ctx.lineWidth = 4;
-                        var opacity = ((53 - start)/53);
-                        ctx.strokeStyle = 'rgb(255,216, 2,' + opacity.toString() + ')';
-                        ctx.moveTo(3, -25 - gap);
-                        ctx.lineTo(-27 - gap, 5);
-                        ctx.lineTo(3, 35 + gap);
-                        ctx.lineTo(33 + gap, 5);
-                        ctx.lineTo(3 - Math.sqrt(2), -25 - Math.sqrt(2) - gap);
-                        ctx.stroke();
-                        ctx.translate(-75, -75);
-                        
-                        const fps = 1000/60;
-                        window.requestAnimationFrame(() => {
-                            setTimeout(this.draw.bind(this), fps);
-                        });
+                    function sleep(delay) {
+                        var start = new Date().getTime();
+                        while (new Date().getTime() < start + delay);
                     }
-                }
 
-                window.requestAnimationFrame(draw);
-            </script>
+                    function draw() {
+                        const canvas = document.getElementById("start-button");
+                        if (canvas.getContext) {
+                            const ctx = canvas.getContext('2d');
+                            ctx.clearRect(0, 0, 150, 150);
+                        
+                            ctx.fillStyle = '#ffd802';
+                            ctx.strokeStyle = '#ffd802';
+                            ctx.translate(75, 75);
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.moveTo(-1, -10);
+                            ctx.lineTo(-1, 0);
+                            ctx.lineTo(-1 + 2 * 5, -5);
+                            ctx.fill();
+                            
+                            ctx.beginPath();
+                            ctx.lineWidth = 4;
+                            ctx.moveTo(3, -25);
+                            ctx.lineTo(-27, 5);
+                            ctx.lineTo(3, 35);
+                            ctx.lineTo(33, 5);
+                            ctx.lineTo(3 - Math.sqrt(2), -25 - Math.sqrt(2));
+                            ctx.stroke();
+                        
+                            ctx.restore();
+                            ctx.beginPath();
+                            ctx.font = "italic 12px sans-serif";
+                            ctx.fillText("START", -16, 13);
+                        
+                            start += 2.7;
+                            if (start >= 53) {
+                            sleep(50);
+                            }
+                            start %= 53;
+                            var gap = start;
+                            ctx.restore();
+                            ctx.beginPath();
+                            ctx.lineWidth = 4;
+                            var opacity = ((53 - start)/53);
+                            ctx.strokeStyle = 'rgb(255,216, 2,' + opacity.toString() + ')';
+                            ctx.moveTo(3, -25 - gap);
+                            ctx.lineTo(-27 - gap, 5);
+                            ctx.lineTo(3, 35 + gap);
+                            ctx.lineTo(33 + gap, 5);
+                            ctx.lineTo(3 - Math.sqrt(2), -25 - Math.sqrt(2) - gap);
+                            ctx.stroke();
+                            ctx.translate(-75, -75);
+                            
+                            const fps = 1000/60;
+                            window.requestAnimationFrame(() => {
+                                setTimeout(this.draw.bind(this), fps);
+                            });
+                        }
+                    }
+
+                    window.requestAnimationFrame(draw);
+                </script>
+            </div>
         </div>
-    </div>
-    {{ end }}
-
-    {{ if .Site.Params.useFrontPage }}
-    <div id="div_raw" style="display: none; width: 100%;">
-    {{ else }}
-    <div id="div_raw" style="display: block; width: 100%;">
-    {{ end }}
-        <section class="article-list">
-            {{ range $index, $element := $pag.Pages }}
-                {{ partial "article-list/default" . }}
-            {{ end }}
-        </section>
-
-        {{- partial "pagination.html" . -}}
-        {{- partial "footer/footer" . -}}
-    </div>
-{{ end }}
-
-{{ define "right-sidebar" }}
-    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            var toggleButton = document.getElementById("start-button");
+            toggleButton.addEventListener("click", function() {
+                window.location.href = "/page/main";
+            });
+            });
+        </script>
+    </body>
+</html>
+{{ else }}
+<html>
+    <head>
+        <meta http-equiv="refresh" content="0; url=/page/main" />
+    </head>
+</html>
 {{ end }}
