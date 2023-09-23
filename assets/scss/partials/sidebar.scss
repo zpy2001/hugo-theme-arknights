@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+    top: 0;
     &.sticky {
         @include respond(md) {
             position: sticky;
@@ -12,18 +13,31 @@
 
 [data-scheme="dark"] {
     .left-sidebar-inside {
-        background-color: #000000cc;
-        height: 90vh;
-        padding: 0 20px 0 20px;
-        width: 25vw;
+        background-color: #000000cb;
+        width: 17.5vw;
     }
 }
 
 .left-sidebar-inside {
+    background-color: rgba(255, 255, 255, 0.775);
+    width: 17.5vw;
+}
+
+[data-scheme="dark"] {
+    .right-sidebar-inside {
+        background-color: #000000cc;
+        width: 20vw;
+    }
+}
+
+.right-sidebar-inside {
     background-color: rgba(255, 255, 255, 0.87);
+    width: 20vw;
+}
+
+.sidebar-common {
     height: 90vh;
     padding: 20px;
-    width: 20vw;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -75,21 +89,6 @@
                 font-size: 1.4rem;
             }
         }
-    }
-}
-
-.right-sidebar {
-    display: none;
-    flex-direction: column;
-    gap: var(--widget-separation);
-
-    &.sticky {
-        top: 0;
-    }
-
-    @include respond(lg) {
-        padding-top: var(--main-top-padding);
-        padding-bottom: var(--main-top-padding);
     }
 }
 
