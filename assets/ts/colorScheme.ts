@@ -10,6 +10,7 @@ class StackColorScheme {
     constructor(toggleEl: HTMLElement) {
         this.currentScheme = this.getSavedScheme();
 
+        document.documentElement.dataset.scheme = 'light';
         var elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-right')[0];
         elem.style.display = 'none';
         elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-center')[0];
