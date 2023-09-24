@@ -98,6 +98,9 @@ main.main {
         display: flex;
         flex-wrap: wrap;
         gap: var(--section-separation);
+        header {
+            width: 100%;
+        }
     }
 }
 
@@ -107,4 +110,8 @@ main.main {
     display: flex;
     flex-wrap: wrap;
     gap: var(--section-separation);
+
+    header {
+        width: 100%;
+    }
 }

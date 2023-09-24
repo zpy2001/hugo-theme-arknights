@@ -43,6 +43,7 @@
     flex-shrink: 0;
     align-self: stretch;
     gap: var(--sidebar-element-separation);
+    overflow: auto;
 
     --sidebar-avatar-size: 100px;
     --sidebar-element-separation: 20px;
