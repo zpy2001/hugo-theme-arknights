@@ -6,7 +6,7 @@
             <div style="height: 50%; display: flex; align-items: end; justify-content: center;">
                 <p style="font-family: geneva; font-weight:100; font-size: 30px; color: white">Welcome to {{ T "name" | safeHTML }} Blog</p>
             </div>
-            <div style="height: 35%; display: flex; align-items: center; justify-content: center;">
+            <div style="height: 28%; display: flex; align-items: center; justify-content: center;">
                 <canvas id="start-button" width="150" height="150"></canvas>
                 <script type="application/javascript">
                     var start = 0;
@@ -33,7 +33,7 @@
                             ctx.fill();
                             
                             ctx.beginPath();
-                            ctx.lineWidth = 4;
+                            ctx.lineWidth = 5;
                             ctx.moveTo(3, -25);
                             ctx.lineTo(-27, 5);
                             ctx.lineTo(3, 35);
@@ -47,15 +47,15 @@
                             ctx.fillText("START", -16, 13);
                         
                             start += 2.7;
-                            if (start >= 53) {
-                            sleep(50);
+                            if (start >= 50) {
+                                sleep(50);
                             }
-                            start %= 53;
+                            start %= 50;
                             var gap = start;
                             ctx.restore();
                             ctx.beginPath();
-                            ctx.lineWidth = 4;
-                            var opacity = ((53 - start)/53);
+                            ctx.lineWidth = 5;
+                            var opacity = ((50 - start)/50);
                             ctx.strokeStyle = 'rgb(255,216, 2,' + opacity.toString() + ')';
                             ctx.moveTo(3, -25 - gap);
                             ctx.lineTo(-27 - gap, 5);

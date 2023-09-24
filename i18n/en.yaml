@@ -5,7 +5,12 @@ toggleMenu:
     other: Toggle Menu
 
 darkMode:
-    other: Dark Mode
+    light:
+        other: Light Mode
+    auto:
+        other: Auto
+    dark:
+        other: Dark Mode
 
 list:
     page:

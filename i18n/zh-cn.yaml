@@ -5,7 +5,12 @@ toggleMenu:
     other: 切换菜单
 
 darkMode:
-    other: 暗色模式
+    light:
+        other: 亮色模式
+    center:
+        other: 自动
+    dark:
+        other: 暗色模式
 
 article:
     back:
