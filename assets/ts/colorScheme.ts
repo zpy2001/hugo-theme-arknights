@@ -9,16 +9,8 @@ class StackColorScheme {
 
     constructor(toggleEl: HTMLElement) {
         this.currentScheme = this.getSavedScheme();
-
-        document.documentElement.dataset.scheme = 'light';
-        var elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-right')[0];
-        elem.style.display = 'none';
-        elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-center')[0];
-        elem.style.display = 'none';
-        elem = document.getElementById('dark-mode-auto');
-        elem.style.display = 'none';
-        elem = document.getElementById('dark-mode-dark');
-        elem.style.display = 'none';
+        
+        this.updateButtonDisplay();
 
         this.dispatchEvent(document.documentElement.dataset.scheme as colorScheme);
 
@@ -45,44 +37,61 @@ class StackColorScheme {
         localStorage.setItem(this.localStorageKey, this.currentScheme);
     }
 
+    private updateScheme() {
+        if (this.currentScheme == 'dark') {
+            this.currentScheme = 'light';
+        }
+        else if (this.currentScheme == 'auto') {
+            this.currentScheme = 'dark';
+        }
+        else {
+            this.currentScheme = 'auto';
+        }
+    }
+
+    private updateButtonDisplay() {
+        var elem_left_display = 'none';
+        var elem_center_display = 'none';
+        var elem_right_display = 'none';
+        var elem_light_display = 'none';
+        var elem_auto_display = 'none';
+        var elem_dark_display = 'none';
+
+        if (this.currentScheme == 'light') {
+            elem_left_display = 'block';
+            elem_light_display = 'block';
+        }
+        else if (this.currentScheme == 'dark') {
+            this.dispatchMatchMedia();
+            elem_right_display = 'block';
+            elem_dark_display = 'block';
+        }
+        else {
+            this.bindMatchMedia();
+            elem_center_display = 'block';
+            elem_auto_display = 'block';
+        }
+        
+
+        var elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-left')[0];
+        elem.style.display = elem_left_display;
+        var elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-center')[0];
+        elem.style.display = elem_center_display;
+        var elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-right')[0];
+        elem.style.display = elem_right_display;
+        elem = document.getElementById('dark-mode-light');
+        elem.style.display = elem_light_display;
+        elem = document.getElementById('dark-mode-auto');
+        elem.style.display = elem_auto_display;
+        elem = document.getElementById('dark-mode-dark');
+        elem.style.display = elem_dark_display;
+    }
+
     private bindClick(toggleEl: HTMLElement) {
         toggleEl.addEventListener('click', (e) => {
-            var elem_left_display = 'none';
-            var elem_center_display = 'none';
-            var elem_right_display = 'none';
-            var elem_light_display = 'none';
-            var elem_auto_display = 'none';
-            var elem_dark_display = 'none';
-            if (this.currentScheme == 'dark') {
-                this.currentScheme = 'light';
-                elem_left_display = 'block';
-                elem_light_display = 'block';
-            }
-            else if (this.currentScheme == 'auto') {
-                this.currentScheme = 'dark';
-                this.dispatchMatchMedia();
-                elem_right_display = 'block';
-                elem_dark_display = 'block';
-            }
-            else {
-                this.currentScheme = 'auto';
-                this.bindMatchMedia();
-                elem_center_display = 'block';
-                elem_auto_display = 'block';
-            }
+            this.updateScheme();
 
-            var elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-left')[0];
-            elem.style.display = elem_left_display;
-            var elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-center')[0];
-            elem.style.display = elem_center_display;
-            var elem = <HTMLElement>document.getElementsByClassName('icon-tabler-toggle-right')[0];
-            elem.style.display = elem_right_display;
-            elem = document.getElementById('dark-mode-light');
-            elem.style.display = elem_light_display;
-            elem = document.getElementById('dark-mode-auto');
-            elem.style.display = elem_auto_display;
-            elem = document.getElementById('dark-mode-dark');
-            elem.style.display = elem_dark_display;
+            this.updateButtonDisplay();
 
             this.setBodyClass();
 
