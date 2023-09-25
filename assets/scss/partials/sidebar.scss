@@ -145,6 +145,7 @@
         color: var(--accent-color);
         margin: 0;
         font-size: 1.6rem;
+        text-align: center;
 
         @include respond(2xl) {
             font-size: 1.8rem;
@@ -157,6 +158,7 @@
         margin: 0;
         font-size: 1.4rem;
         line-height: 1.5;
+        text-align: center;
 
         @include respond(2xl) {
             font-size: 1.6rem;
