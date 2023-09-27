@@ -1,15 +1,32 @@
 type colorScheme = 'light' | 'dark' | 'auto';
-type functionCallback = (e: MediaQueryListEvent) => void;
+type functionCallback = () => void;
 
 class StackColorScheme {
     private localStorageKey = 'StackColorScheme';
     private currentScheme: colorScheme;
     private systemPreferScheme: colorScheme;
     private eventListener: functionCallback;
+    private eventListenerId: number;
 
     constructor(toggleEl: HTMLElement) {
+        this.eventListenerId = 0;
+
         this.currentScheme = this.getSavedScheme();
         
+        this.eventListener = function() : void {
+            if (this.currentScheme == 'auto') {
+                var date = new Date();
+                var time = date.getHours();
+                if (time <= 6 || time >= 18) {
+                    this.systemPreferScheme = 'dark';
+                }
+                else {
+                    this.systemPreferScheme = 'light';
+                }
+                this.setBodyClass();
+            }
+        }
+
         this.updateButtonDisplay();
 
         this.dispatchEvent(document.documentElement.dataset.scheme as colorScheme);
@@ -20,17 +37,19 @@ class StackColorScheme {
         if (document.body.style.transition == '')
             document.body.style.setProperty('transition', 'background-color .3s ease');
         
-        this.eventListener = function(e: MediaQueryListEvent) : void {
-            if (this.currentScheme == 'auto') {
-                if (e.matches) {
-                    this.systemPreferScheme = 'dark';
-                    console.log(this.systemPreferScheme);
-                }
-                else {
-                    this.systemPreferScheme = 'light';
-                }
-                this.setBodyClass();
+        if (this.currentScheme == 'auto') {
+            var date = new Date();
+            var time = date.getHours();
+            var eventHourGap = 60 - date.getMinutes();
+            clearInterval(this.eventListenerId);
+            this.eventListenerId = setInterval(this.eventListener, 1000 * 60 * eventHourGap);
+            if (time <= 6 || time >= 18) {
+                this.systemPreferScheme = 'dark';
             }
+            else {
+                this.systemPreferScheme = 'light';
+            }
+            this.setBodyClass();
         }
     }
 
@@ -132,11 +151,19 @@ class StackColorScheme {
 
 
     private bindMatchMedia() {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.eventListener);
+        this.eventListenerId = setInterval(this.eventListener, 1000 * 60 * 60);
+        var date = new Date();
+        var time = date.getHours();
+        if (time <= 6 || time >= 18) {
+            this.systemPreferScheme = 'dark';
+        }
+        else {
+            this.systemPreferScheme = 'light';
+        }
     }
 
     private dispatchMatchMedia() {
-        window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', this.eventListener);
+        clearInterval(this.eventListenerId);
     }
 }
 
