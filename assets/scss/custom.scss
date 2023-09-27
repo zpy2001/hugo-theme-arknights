@@ -39,3 +39,17 @@
     border: 10px solid #ffd802;
     transform: rotateX(45deg) rotateZ(45deg);
 }
+
+html .takina {
+    position: fixed;
+    right: 200px;
+    bottom: 0;
+    transform-origin: 100% 100%; /* 从右下开始变换 */
+}
+
+html .chisato {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    transform-origin: 100% 100%; /* 从右下开始变换 */
+}

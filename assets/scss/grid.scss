@@ -52,6 +52,12 @@
     }
 }
 
+@media only screen and (max-width: 1060px) {
+    #right-sidebar {
+        display: none;
+    }
+}
+
 .flex {
     display: flex;
     flex-direction: row;
@@ -74,8 +80,6 @@
 
 main.main {
     order: -2;
-    min-width: 0;
-    width: 50vw;
     padding: 5vh 0 5vh 0;
 }
 
@@ -98,6 +102,8 @@ main.main {
         display: flex;
         flex-wrap: wrap;
         gap: var(--section-separation);
+        width: 50vw;
+
         header {
             width: 100%;
         }
@@ -110,6 +116,7 @@ main.main {
     display: flex;
     flex-wrap: wrap;
     gap: var(--section-separation);
+    width: 50vw;
 
     header {
         width: 100%;

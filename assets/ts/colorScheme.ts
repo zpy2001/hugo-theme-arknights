@@ -24,6 +24,7 @@ class StackColorScheme {
             if (this.currentScheme == 'auto') {
                 if (e.matches) {
                     this.systemPreferScheme = 'dark';
+                    console.log(this.systemPreferScheme);
                 }
                 else {
                     this.systemPreferScheme = 'light';

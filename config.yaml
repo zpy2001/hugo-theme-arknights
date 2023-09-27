@@ -13,7 +13,9 @@ menus:
 
 params:
     useFrontPage: true
-    useChroma: true
+    sakana:
+        useSakana: true
+        mute: true
     mainSections:
         - post
     featuredImageField: image
