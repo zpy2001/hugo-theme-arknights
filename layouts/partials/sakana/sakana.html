@@ -1,24 +1,24 @@
-{{ if .Site.Params.sakana.useSakana }}
+{{- if .Site.Params.sakana.useSakana -}}
   <div class="takina"></div>
   <div class="chisato"></div>
   <script src="https://cdn.jsdelivr.net/npm/sakana"></script>
-  {{ if .Site.Params.sakana.mute }}
+  {{- if .Site.Params.sakana.mute -}}
   <script>
     // 取消静音
     Sakana.setMute(true);
   </script>
-  {{ else }}
+  {{- else -}}
   <script>
     // 取消静音
     Sakana.setMute(false);
   </script>
-  {{ end }}
+  {{- end -}}
   <script>
     // 启动一只泷奈
     const takina = Sakana.init({
         el: '.takina',
         character:'takina',
-        inertia: 0.001,
+        inertia: 0.01,
         decay: 1,
         scale: 0.4
     });
@@ -27,9 +27,9 @@
     const chisato = Sakana.init({
         el:'.chisato',
         character: 'chisato',
-        inertia: 0.001,
+        inertia: 0.01,
         decay: 1,
         scale: 0.4
     });
   </script>
-{{ end }}
+{{- end -}}

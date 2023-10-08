@@ -22,8 +22,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
     --section-separation: 20px;
 
-    --scrollbar-thumb: hsl(0, 0%, 85%);
-    --scrollbar-track: var(--body-background);
+    --yellow: #eac82a;
 
     &[data-scheme="dark"] {
         --body-background: #303030;
@@ -31,8 +30,6 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
         --accent-color-darker: #ffffff;
         --accent-color-text: #000;
         --body-text-color: rgb(255, 255, 255);
-        --scrollbar-thumb: hsl(0, 0%, 40%);
-        --scrollbar-track: var(--body-background);
     }
 }
 

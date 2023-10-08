@@ -39,7 +39,7 @@
             }
 
             img {
-                max-width: 100%;
+                max-width: 80%;
                 height: auto;
             }
         }
@@ -94,10 +94,6 @@
     flex-direction: column;
     color: var(--card-text-color-main);
     overflow: hidden;
-
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--card-separator-color);
-    }
 
     #TableOfContents {
         overflow-x: auto;

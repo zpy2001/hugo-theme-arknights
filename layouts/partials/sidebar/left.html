@@ -25,15 +25,18 @@
                         {{ end }}
                     {{ end }}
                     </a>
-                    {{ with $.Site.Params.sidebar.emoji }}
-                        <span class="emoji">{{ . }}</span>
+                    {{ with $.Site.Params.sidebar.level }}
+                        <div class="level">
+                            <div class="level-number">{{ . }}</div>
+                            <div class="level-LV">LV</div>
+                        </div>
                     {{ end }}
                 </figure>
                 {{ end }}
             {{ end }}
             
             <div class="site-meta">
-                <h1 class="site-name"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></h1>
+                <h1 class="site-name"><a href="{{ .Site.BaseURL | relLangURL }}">Dr. {{ .Site.Params.sideBar.doctor }}</a></h1>
                 <h2 class="site-description">{{ .Site.Params.sidebar.subtitle | safeHTML }}</h2>
             </div>
         </header>
