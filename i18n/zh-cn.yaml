@@ -1,6 +1,9 @@
 name:
     other: BlueSpace
 
+nameLarge:
+    other: BLUESPACE
+
 toggleMenu:
     other: 切换菜单
 
