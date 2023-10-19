@@ -329,7 +329,7 @@
 
     .copyCodeButton {
         position: absolute;
-        top: calc(var(--card-padding));
+        top: 13px;
         right: calc(var(--card-padding) + 10px);
         background: var(--card-background);
         border: none;
