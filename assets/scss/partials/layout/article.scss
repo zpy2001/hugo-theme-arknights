@@ -208,7 +208,7 @@
     line-height: var(--article-line-height);
 
     & > p {
-        margin: 1.5em 0;
+        margin: 1em 0;
     }
 
     h1,
@@ -307,7 +307,7 @@
     }
 
     .highlight {
-        padding: 20px var(--card-padding) 20px var(--card-padding);
+        padding: 0 var(--card-padding) 0 var(--card-padding);
         position: relative;
 
         &:hover {
