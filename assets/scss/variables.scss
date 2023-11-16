@@ -17,6 +17,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --accent-color-darker: #000000;
     --accent-color-text: #fff;
     --body-text-color: #353535;
+    --base-background: rgba(223, 223, 223, 0.796);
 
     --tag-border-radius: 4px;
 
@@ -29,6 +30,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
         --accent-color: #ecf0f1;
         --accent-color-darker: #ffffff;
         --accent-color-text: #000;
+        --base-background: #000000cb;
         --body-text-color: rgb(255, 255, 255);
     }
 }

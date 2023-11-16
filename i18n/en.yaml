@@ -82,3 +82,6 @@ footer:
 
     designedBy:
         other: Theme {{ .Theme }} designed by {{ .DesignedBy }} based on Theme {{ .ThemeRaw }} by {{ .DesignedByRaw }}
+
+    imageUsage:
+        other: Image Copyrights belongs to {{.FrontPagePainter}} and {{.BackGroundPainter}} , appreciate for authorization

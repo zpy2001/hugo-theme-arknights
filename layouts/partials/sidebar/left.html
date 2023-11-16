@@ -6,9 +6,10 @@
             </span>
         </button>
     
-        <header>
-            {{ with .Site.Params.sidebar.avatar }}
-                {{ if (default true .enabled) }}
+
+        {{ with .Site.Params.sidebar.avatar }}
+            {{ if (default true .enabled) }}
+            <div style="width: 100%; display: flex; flex-direction:row; justify-content: center; align-items: center;">
                 <figure class="site-avatar">
                     <a href="{{ .Site.BaseURL | relLangURL }}">
                     {{ if not .local }}
@@ -32,9 +33,11 @@
                         </div>
                     {{ end }}
                 </figure>
-                {{ end }}
+            </div>
             {{ end }}
-            
+        {{ end }}
+
+        <header>            
             <div class="site-meta">
                 <h1 class="site-name"><a href="{{ .Site.BaseURL | relLangURL }}">Dr. {{ .Site.Params.sideBar.doctor }}</a></h1>
                 <h2 class="site-description">{{ .Site.Params.sidebar.subtitle | safeHTML }}</h2>
@@ -82,7 +85,7 @@
             <div class="menu-bottom-section">
                 {{- $currentLanguageCode := .Language.Lang -}}
                 {{ with .Site.Home.AllTranslations }}
-                    <li id="i18n-switch">  
+                    <li id="i18n-switch">
                         {{ partial "helper/icon" "language" }}
                         <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                             {{ range . }}
@@ -101,6 +104,51 @@
                         <span id="dark-mode-auto" >{{ T "darkMode.auto" }}</span>
                         <span id="dark-mode-dark" >{{ T "darkMode.dark" }}</span>
                     </li>
+                {{ end }}
+
+                {{ if eq .Site.Params.appreciateBackgroundOption.enabled true }}
+                    <div style="width: 100%; display:flex; justify-content:center; align-items: center;">
+                        <button id="appreciate-background-btn" style="padding:20px; border-width:0; border-radius: 40px; width: 250px; color: white; font-weight: 1000;"> Appreciate Background </button>
+                        <script>
+                            function notify(type,message){
+                                (()=>{
+                                    let n = document.createElement("div");
+                                    let id = Math.random().toString(36).substr(2,10);
+                                    n.setAttribute("id",id);
+                                    n.classList.add("notification",type);
+                                    n.classList.add("fade_out")
+                                    n.innerText = message;
+                                    document.getElementById("notification-area").appendChild(n);
+                                    setTimeout(()=>{
+                                        var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
+                                        for(let i=0;i<notifications.length;i++){
+                                        if(notifications[i].getAttribute("id") == id){
+                                            notifications[i].remove();
+                                            break;
+                                        }
+                                        }
+                                    },5000);
+                                })();
+                            }
+                              
+                            function notifyNotWorry(){
+                                notify("info","Don't worry, press any key and we are back~");
+                            }
+
+                            var backgroundBtn = document.getElementById("appreciate-background-btn");
+                            backgroundBtn.addEventListener("click", function(e) {
+                                var background = document.getElementById("background-img");
+                                background.style.zIndex = 999;
+                                console.log(background, background.style.zIndex);
+                                notifyNotWorry();
+                                document.onkeydown = function(evt) {
+                                    evt = evt || window.event;
+                                    var background = document.getElementById("background-img");
+                                    background.style.zIndex = -1;
+                                }
+                            });
+                        </script>
+                    </div>
                 {{ end }}
             </div>
         </ol>

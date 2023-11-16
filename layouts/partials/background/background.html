@@ -1,23 +1,18 @@
+{{ $image0 := resources.Get "img/arknights-0.png" }}
+{{ $image1 := resources.Get "img/arknights-1.png" }}
+{{ $image2 := resources.Get "img/arknights-2.png" }}
+{{ $image3 := resources.Get "img/arknights-3.png" }}
+{{ $image4 := resources.Get "img/arknights-4.png" }}
+{{ $image5 := resources.Get "img/arknights-5.png" }}
+{{ $image6 := resources.Get "img/arknights-6.png" }}
+{{ $image7 := resources.Get "img/arknights-7.png" }}
+{{ $image8 := resources.Get "img/arknights-8.png" }}
+{{ $image9 := resources.Get "img/arknights-9.png" }}
+{{ $image10 := resources.Get "img/arknights-10.png" }}
+<img id="background-img" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1">
 <script>
-    const date = new Date();
-    var body = document.body;
-    if (date.getMonth() < 3) {
-        body.style.backgroundImage = url('https://i.ibb.co/wNtTWxm/spring-festival.jpg');
-    }
-    else {
-        let backgrounds = [
-            "https://i.ibb.co/Fw04fPW/youlingsha.png",
-            "https://i.ibb.co/9VCyZdv/sea.jpg",
-            "https://i.ibb.co/LJ7sfxM/skadi.jpg",
-            "https://i.ibb.co/YymCzBr/stars.jpg",
-            "https://i.ibb.co/cXHkCR8/qinliu.jpg",
-            "https://i.ibb.co/ws3bJ1N/eleven-chapter.jpg",
-            "https://i.ibb.co/ggwh61p/skadi-shanhu.jpg",
-        ];
-        body.style.backgroundImage = 'url(' + backgrounds[(Math.floor(Math.random() * backgrounds.length))] + ')';
-    }
-    body.style.backgroundSize = "cover";
-    body.style.backgroundPosition = "center";
-    body.style.backgroundRepeat = "no-repeat";
-    body.style.backgroundAttachment = "fixed";
+    var img = document.getElementById("background-img");
+    let background = ["{{ $image0.RelPermalink }}", "{{ $image1.RelPermalink }}", "{{ $image2.RelPermalink }}", "{{ $image3.RelPermalink }}", "{{ $image4.RelPermalink }}", "{{ $image5.RelPermalink }}", "{{ $image6.RelPermalink }}", "{{ $image7.RelPermalink }}", "{{ $image8.RelPermalink }}", "{{ $image9.RelPermalink }}", "{{ $image10.RelPermalink }}"];
+    console.log(background);
+    img.src = background[Math.floor(Math.random() * background.length)];
 </script>

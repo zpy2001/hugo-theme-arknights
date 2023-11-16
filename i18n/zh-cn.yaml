@@ -69,3 +69,6 @@ footer:
 
     designedBy:
         other: 主题 {{ .Theme }} 由 {{ .DesignedBy }} 基于 {{ .DesignedByRaw }} 的 {{ .ThemeRaw }} 设计
+
+    ImageUsage:
+        other: 图片版权归于 {{.FrontPagePainter}} 和 {{.BackGroundPainter}} ，鸣谢授权

@@ -80,7 +80,7 @@
 
 main.main {
     order: -2;
-    padding: 5vh 0 5vh 0;
+    padding: 0 0 0 0;
 }
 
 .main-container {
@@ -98,7 +98,7 @@ main.main {
 [data-scheme="dark"] {
     .main-inside {
         background-color: rgba(0, 0, 0, 0.8);
-        padding: 20px;
+        padding: 40px 20px;
         display: flex;
         flex-wrap: wrap;
         gap: var(--section-separation);
@@ -112,7 +112,7 @@ main.main {
 
 .main-inside {
     background-color: rgba(255, 255, 255, 0.87);
-    padding: 20px;
+    padding: 40px 20px;
     display: flex;
     flex-wrap: wrap;
     gap: var(--section-separation);

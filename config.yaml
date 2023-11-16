@@ -10,9 +10,15 @@ menus:
           url: https://github.com/ETOgaosion
           params:
             icon: brand-github
+        - identifier: twitter
+          name: Twitter
+          url: https://twitter.com/BlueSpaceXID
+          params:
+            icon: brand-twitter
 
 params:
     version: 0.1.01
+    location: en
     useFrontPage: true
     math:
         useKatex: false
@@ -36,7 +42,7 @@ params:
     sidebar:
         compact: false
         doctor: BlueSpace
-        level: 111
+        level: 112
         subtitle: 'CSer in ICT <br /> Research Direction:<br /> OS, Cloud, Virtualization, Game'
         avatar:
             enabled: true
@@ -153,7 +159,7 @@ params:
         opengraph:
             enabled: false
             local: false
-            src: https://i.ibb.co/ggwh61p/skadi-shanhu.jpg
+            src: /img/arknights-0.png
 
     colorScheme:
         # Display toggle
@@ -161,6 +167,9 @@ params:
 
         # Available values: auto, light, dark
         default: auto
+    
+    appreciateBackgroundOption:
+        enabled: true
 
     imageProcessing:
         cover:

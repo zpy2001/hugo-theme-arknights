@@ -6,6 +6,7 @@
     </head>
     <body class="{{ block `body-class` . }}{{ end }}" style="height: 100vh;">
         {{- partial "head/colorScheme" . -}}
+        {{ partial "background/background.html" . }}
 
         {{/* The container is wider when there's any activated widget */}}
         {{- $hasWidget := false -}}
@@ -25,8 +26,8 @@
                 </div>
             </main>
         </div>
+        <div id="notification-area"></div>
         {{ partial "footer/include.html" . }}
-        {{ partial "background/background.html" . }}
         {{ partial "color/random_color.html" . }}
         {{ partial "sakana/sakana.html" . }}
     </body>
