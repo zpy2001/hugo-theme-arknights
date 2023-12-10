@@ -118,6 +118,7 @@
                                     n.classList.add("notification",type);
                                     n.classList.add("fade_out")
                                     n.innerText = message;
+                                    document.getElementById("notification-area").style.zIndex = 9999;
                                     document.getElementById("notification-area").appendChild(n);
                                     setTimeout(()=>{
                                         var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
@@ -139,6 +140,7 @@
                                 var background = document.getElementById("background-img");
                                 background.style.zIndex = -1;
                                 document.getElementById("background-img").removeEventListener("click", clickEvent);
+                                document.getElementById("notification-area").style.zIndex = -1;
                             }
 
                             var backgroundBtn = document.getElementById("appreciate-background-btn");
