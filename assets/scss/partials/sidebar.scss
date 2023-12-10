@@ -22,16 +22,6 @@
 }
 
 [data-scheme="dark"] {
-    .left-sidebar-inside {
-        width: 400px;
-    }
-}
-
-.left-sidebar-inside {
-    width: 400px;
-}
-
-[data-scheme="dark"] {
     .right-sidebar {
         background-color: var(--base-background);
     }
@@ -39,16 +29,6 @@
 
 .right-sidebar {
     background-color: var(--base-background);
-}
-
-[data-scheme="dark"] {
-    .right-sidebar-inside {
-        width: 400px;
-    }
-}
-
-.right-sidebar-inside {
-    width: 400px;
 }
 
 .sidebar-common {
@@ -67,6 +47,9 @@
     --level-font-size: 20px;
 
     @include respond(md) {
+        width: auto;
+        padding-top: var(--main-top-padding);
+        padding-bottom: var(--main-top-padding);
         max-height: 100vh;
     }
 

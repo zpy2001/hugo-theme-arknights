@@ -4,10 +4,12 @@
 
     .left-sidebar {
         order: -3;
+        max-width: var(--left-sidebar-max-width);
     }
 
     .right-sidebar {
         order: -1;
+        max-width: var(--right-sidebar-max-width);
 
         /// Display right sidebar when min-width: lg
         @include respond(lg) {
@@ -17,42 +19,19 @@
 
     &.extended {
         @include respond(md) {
-            max-width: 1024px;
-            --left-sidebar-max-width: 25%;
-            --right-sidebar-max-width: 30%;
+            max-width: 90vw;
+            --left-sidebar-max-width: 35%;
         }
 
-        @include respond(lg) {
-            max-width: 1280px;
+        @include respond(xl) {
+            max-width: 90vw;
             --left-sidebar-max-width: 20%;
             --right-sidebar-max-width: 30%;
-        }
-
-        @include respond(xl) {
-            max-width: 1536px;
-            --left-sidebar-max-width: 15%;
-            --right-sidebar-max-width: 25%;
-        }
-    }
-
-    &.compact {
-        @include respond(md) {
-            --left-sidebar-max-width: 30%;
-            max-width: 768px;
-        }
-
-        @include respond(lg) {
-            max-width: 1024px;
-            --left-sidebar-max-width: 25%;
-        }
-
-        @include respond(xl) {
-            max-width: 1400px;
         }
     }
 }
 
-@media only screen and (max-width: 1060px) {
+@media only screen and (max-width: 1300px) {
     #right-sidebar {
         display: none;
     }
@@ -98,15 +77,6 @@ main.main {
 [data-scheme="dark"] {
     .main-inside {
         background-color: rgba(0, 0, 0, 0.8);
-        padding: 40px 20px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--section-separation);
-        width: 50vw;
-
-        header {
-            width: 100%;
-        }
     }
 }
 
@@ -116,7 +86,7 @@ main.main {
     display: flex;
     flex-wrap: wrap;
     gap: var(--section-separation);
-    width: 50vw;
+    width: 55vw;
 
     header {
         width: 100%;
