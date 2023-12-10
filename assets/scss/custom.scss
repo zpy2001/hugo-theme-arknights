@@ -120,3 +120,17 @@ html .chisato {
 #notification-area .notification.info {
     background:#00acee;
 }
+
+.leftbar-toggle {
+    position: absolute;
+    top: 25px;
+    left: 60px;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

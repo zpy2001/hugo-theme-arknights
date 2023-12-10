@@ -1,11 +1,15 @@
-<aside class="sidebar left-sidebar sticky {{ if .Site.Params.sidebar.compact }}compact{{ end }}">
+<li class="leftbar-toggle" id="leftbar-toggle">
+    <span id="sidebar-toggle-left">{{ partial "helper/icon" "sidebar-toggle-left" }}</span>
+    <span id="sidebar-toggle-right">{{ partial "helper/icon" "sidebar-toggle-right" }}</span>
+</li>
+
+<aside class="sidebar left-sidebar sticky {{ if .Site.Params.sidebar.compact }}compact{{ end }}" id="left-side-bar">
     <div class="left-sidebar-inside sidebar-common">
         <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="{{ T `toggleMenu` }}">
             <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
             </span>
         </button>
-    
 
         {{ with .Site.Params.sidebar.avatar }}
             {{ if (default true .enabled) }}
@@ -87,7 +91,7 @@
                 {{ with .Site.Home.AllTranslations }}
                     <li id="i18n-switch">
                         {{ partial "helper/icon" "language" }}
-                        <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        <select name="language" onchange="window.location.href = this.selectedOptions.value">
                             {{ range . }}
                                 <option value="{{ .Permalink }}" {{ if eq .Language.Lang $currentLanguageCode }}selected{{ end }}>{{ .Language.LanguageName }}</option>
                             {{ end }}
@@ -121,7 +125,7 @@
                                     document.getElementById("notification-area").style.zIndex = 9999;
                                     document.getElementById("notification-area").appendChild(n);
                                     setTimeout(()=>{
-                                        var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
+                                        var notifications = document.getElementById("notification-area").getElementById("notification");
                                         for(let i=0;i<notifications.length;i++){
                                         if(notifications[i].getAttribute("id") == id){
                                             notifications[i].remove();
