@@ -132,7 +132,13 @@
                             }
                               
                             function notifyNotWorry(){
-                                notify("info","Don't worry, press any key and we are back~");
+                                notify("info","Don't worry, click your mouse or press any key and we are back~");
+                            }
+
+                            function clickEvent(event) {
+                                var background = document.getElementById("background-img");
+                                background.style.zIndex = -1;
+                                document.getElementById("background-img").removeEventListener("click", clickEvent);
                             }
 
                             var backgroundBtn = document.getElementById("appreciate-background-btn");
@@ -146,6 +152,7 @@
                                     var background = document.getElementById("background-img");
                                     background.style.zIndex = -1;
                                 }
+                                document.getElementById("background-img").addEventListener("click", clickEvent);
                             });
                         </script>
                     </div>
