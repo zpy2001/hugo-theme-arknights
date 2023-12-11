@@ -155,18 +155,38 @@ html .chisato {
     visibility: visible;
 }
 
-$hint-colors: (
-    info: #6bf,
-    warning: #fd6,
-    danger: #f66,
-    success: #6f6,
+$hint-head-colors: (
+    info: #67AFE0,
+    warning: #F1B37A,
+    danger: #DB524B,
+    success: #58B957,
+) !default;
+
+$hint-body-colors: (
+    info: #e7f2fa,
+    warning: #FFEDCA,
+    danger: #f8b0b0,
+    success: #DFF0D7,
 ) !default;
 
 .md-hint {
-    @each $name, $color in $hint-colors {
+    @each $name, $color in $hint-body-colors {
         &.#{$name} {
-            border-color: $color;
-            background-color: rgba($color, 0.1);
+            background-color: rgba($color, 1);
+            color: black;
+        }
+    }
+}
+
+.md-hint-header {
+    @each $name, $color in $hint-head-colors {
+        &.#{$name} {
+            background-color: rgba($color, 1);
+            color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 10px;
+            font-weight: 300;
         }
     }
 }

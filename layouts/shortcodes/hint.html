@@ -1,4 +1,11 @@
-{{ $type := .Get 0 }}
+{{ $type := .Get "degree" }}
 {{ printf "<blockquote class=\"md-hint %s\">" $type | htmlUnescape | safeHTML }}
+{{ printf "<div class=\"md-hint-header %s\">" $type | htmlUnescape | safeHTML}}
+{{ $icon := printf "md-hint-%s" $type | printf "%s" }}
+<div style="display: inline-block;">{{ partial "helper/icon" $icon }}</div>
+{{ with .Get "title" }}
+<div style="display: inline-block;"><b>{{ . | safeHTML }}</b></div>
+{{ end }}
+{{ printf "</div>" | htmlUnescape | safeHTML}}
 {{ .Inner | safeHTML }}
 {{ printf "</blockquote>" | htmlUnescape | safeHTML }}
