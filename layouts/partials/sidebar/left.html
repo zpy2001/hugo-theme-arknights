@@ -1,5 +1,6 @@
 <li class="leftbar-toggle" id="leftbar-toggle">
-    <span class="leftbar-toggle-tooltiptext">Click to hide sidebar</span>
+    <span class="leftbar-toggle-tooltiptext-hide">Click to hide sidebar</span>
+    <span class="leftbar-toggle-tooltiptext-show" style="display: none;">Click to show sidebar</span>
     <span id="sidebar-toggle-left">{{ partial "helper/icon" "sidebar-toggle-left" }}</span>
     <span id="sidebar-toggle-right">{{ partial "helper/icon" "sidebar-toggle-right" }}</span>
 </li>
@@ -71,7 +72,7 @@
     
         <ol class="menu" id="main-menu">
             {{ $currentPage := . }}
-            {{ range .Site.Menus.main }}
+            {{ range sort .Site.Menus.main "Weight" "desc" }}
             {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
             <li {{ if $active }} class='current' {{ end }}>
                 <a href='{{ .URL }}' {{ if eq .Params.newTab true }}target="_blank"{{ end }}>

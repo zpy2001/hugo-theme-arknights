@@ -133,7 +133,24 @@ html .chisato {
     justify-content: center;
     align-items: center;
 
-    .leftbar-toggle-tooltiptext {
+    .leftbar-toggle-tooltiptext-hide {
+        visibility: hidden;
+        position: fixed;
+        top: 35px;
+        left: 75px;
+        width: auto;
+        height: auto;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+      
+        /* Position the tooltip */
+        z-index: 1;
+    }
+
+    .leftbar-toggle-tooltiptext-show {
         visibility: hidden;
         position: fixed;
         top: 35px;
@@ -151,7 +168,11 @@ html .chisato {
     }
 }
 
-.leftbar-toggle:hover .leftbar-toggle-tooltiptext {
+.leftbar-toggle:hover .leftbar-toggle-tooltiptext-hide {
+    visibility: visible;
+}
+
+.leftbar-toggle:hover .leftbar-toggle-tooltiptext-show {
     visibility: visible;
 }
 

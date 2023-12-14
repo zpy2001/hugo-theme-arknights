@@ -3,19 +3,6 @@ module:
         extended: true
         min: "0.118.2"
 
-menus:
-    social:
-        - identifier: github
-          name: GitHub
-          url: https://github.com/ETOgaosion
-          params:
-            icon: brand-github
-        - identifier: twitter
-          name: Twitter
-          url: https://twitter.com/BlueSpaceXID
-          params:
-            icon: brand-twitter
-
 params:
     version: 0.1.01
     location: en
@@ -29,7 +16,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon:
+    favicon: /favicon.ico
 
     footer:
         since:
@@ -40,14 +27,14 @@ params:
         lastUpdated: Jan 02, 2006 15:04 MST
 
     sidebar:
-        compact: false
-        doctor: BlueSpace
-        level: 112
-        subtitle: 'CSer in ICT <br /> Research Direction:<br /> OS, Cloud, Virtualization, Game'
+        compact:
+        doctor:
+        level:
+        subtitle:
         avatar:
-            enabled: true
-            local: true
-            src: img/avatar.jpeg
+            enabled:
+            local:
+            src:
 
     article:
         math: false
