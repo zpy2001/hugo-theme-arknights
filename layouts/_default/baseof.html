@@ -25,35 +25,11 @@
                     {{- block "main" . }}{{- end }}
                 </div>
             </main>
-            <script>
-                var leftFunc = function() {
-                    document.getElementById("left-side-bar").style.display = 'none';
-                    document.getElementById("main-inside").style.width = '70vw';
-                    document.getElementById('sidebar-toggle-left').style.display = 'none';
-                    document.getElementById('sidebar-toggle-right').style.display = 'block';
-                    document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'none';
-                    document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'block';
-                }
-
-                document.getElementById('sidebar-toggle-left').addEventListener('click', leftFunc);
-
-                var rightFunc = function() {
-                    document.getElementById("left-side-bar").style.display = 'block';
-                    document.getElementById("main-inside").style.width = '55vw';
-                    document.getElementById('sidebar-toggle-right').style.display = 'none';
-                    document.getElementById('sidebar-toggle-left').style.display = 'block';
-                    document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
-                    document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
-                }
-
-
-                document.getElementById('sidebar-toggle-right').addEventListener('click', rightFunc);
-                document.getElementById('sidebar-toggle-right').style.display = 'none';
-            </script>
         </div>
         <div id="notification-area"></div>
         {{ partial "footer/include.html" . }}
         {{ partial "color/random_color.html" . }}
         {{ partial "sakana/sakana.html" . }}
+        {{ partial "sidebar/toggle.html" . }}
     </body>
 </html>
