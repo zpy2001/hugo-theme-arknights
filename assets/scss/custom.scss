@@ -309,3 +309,14 @@ $hint-body-colors: (
 .up-btn:hover .up-btn-tooltiptext{
     visibility: visible;
 }
+
+.katex-html {
+    display: none;
+}
+
+mstyle {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}

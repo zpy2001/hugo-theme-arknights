@@ -8,7 +8,7 @@ params:
     location: en
     useFrontPage: true
     math:
-        useKatex: false
+        useKatex: true
     sakana:
         useSakana: true
         mute: true
