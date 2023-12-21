@@ -4,16 +4,17 @@
 
     .left-sidebar {
         order: -3;
-        max-width: var(--left-sidebar-max-width);
+        max-width: 400px;
     }
 
     .left-sidebar-inside {
-        width: var(--left-sidebar-max-width);
+        width: var(--left-sidebar-width);
+        max-width: 400px;
     }
 
     .right-sidebar {
         order: -1;
-        max-width: var(--right-sidebar-max-width);
+        max-width: 400px;
 
         /// Display right sidebar when min-width: lg
         @include respond(lg) {
@@ -22,26 +23,15 @@
     }
 
     .right-sidebar-inside {
-        width: var(--right-sidebar-max-width);
+        width: var(--right-sidebar-width);
+        max-width: 400px;
     }
 
     &.extended {
         @media (min-width: 0) {
             max-width: 90vw;
-            --left-sidebar-max-width: 20vw;
+            --left-sidebar-width: 20vw;
         }
-
-        @media (min-width: 1400px) {
-            max-width: 90vw;
-            --left-sidebar-max-width: 13vw;
-            --right-sidebar-max-width: 15vw;
-        }
-    }
-}
-
-@media only screen and (max-width: 1400px) {
-    #right-sidebar {
-        display: none;
     }
 }
 

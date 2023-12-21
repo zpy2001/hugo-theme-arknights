@@ -20,6 +20,8 @@
 
     document.getElementById('leftbar-toggle-left').addEventListener('click', leftToggleFunc);
     document.getElementById('rightbar-toggle-right').addEventListener('click', rightToggleFunc);
+    document.getElementById('rightbar-toggle-right').style.display = 'none';
+    document.getElementById("right-sidebar").style.display = 'none';
 
     var leftBackFunc = function() {
         document.getElementById("left-sidebar").style.display = 'block';
@@ -44,5 +46,4 @@
     document.getElementById('leftbar-toggle-right').addEventListener('click', leftBackFunc);
     document.getElementById('leftbar-toggle-right').style.display = 'none';
     document.getElementById('rightbar-toggle-left').addEventListener('click', rightBackFunc);
-    document.getElementById('rightbar-toggle-left').style.display = 'none';
 </script>

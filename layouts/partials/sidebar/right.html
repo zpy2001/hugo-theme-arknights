@@ -1,9 +1,36 @@
 <li class="rightbar-toggle" id="rightbar-toggle">
-    <span class="rightbar-toggle-tooltiptext-hide" id="rightbar-toggle-tooltiptext-hide">Click to hide sidebar</span>
-    <span class="rightbar-toggle-tooltiptext-show" style="display: none;" id="rightbar-toggle-tooltiptext-show">Click to show sidebar</span>
+    <span class="rightbar-toggle-tooltiptext-hide" style="display: none;" id="rightbar-toggle-tooltiptext-hide">Click to hide sidebar</span>
+    <span class="rightbar-toggle-tooltiptext-show" id="rightbar-toggle-tooltiptext-show">Click to show sidebar</span>
     <span id="rightbar-toggle-right">{{ partial "helper/icon" "sidebar-toggle-right" }}</span>
     <span id="rightbar-toggle-left">{{ partial "helper/icon" "sidebar-toggle-left" }}</span>
 </li>
+
+<button onclick="topFunction()" id="up-btn" class="up-btn" title="Go to top">
+    <span class="up-btn-tooltiptext" id="up-btn-tooltiptext">Click to go top</span>
+    {{ partial "helper/icon.html" "top" }}
+</button>
+
+<script>
+    // Get the button:
+    var upBtn = document.getElementById("up-btn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            upBtn.style.display = "block";
+        } else {
+            upBtn.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
 
 {{- $scope := default "homepage" .Scope -}}
 {{- $context := .Context -}}
