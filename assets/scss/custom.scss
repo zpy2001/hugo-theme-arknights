@@ -18,13 +18,13 @@
 }
 
 .equilateralTriangle {
-	width: 0;
-	height: 0;
-	
-	border-right: 5px solid  transparent; 
-	border-left: 5px solid  transparent; 
+    width: 0;
+    height: 0;
+    
+    border-right: 5px solid  transparent; 
+    border-left: 5px solid  transparent; 
 
-	border-bottom: 8.660254px solid #ffd802;  // (border-left-width 50px + border-right-width 50px) * 0.8660254 = 86.60254px  border-bottom-width = EquilateralTriangle height
+    border-bottom: 8.660254px solid #ffd802;  // (border-left-width 50px + border-right-width 50px) * 0.8660254 = 86.60254px  border-bottom-width = EquilateralTriangle height
 }
 
 .equilateralTriangle:before {
@@ -262,6 +262,8 @@ $hint-body-colors: (
             padding-left: 10px;
             padding-right: 10px;
             margin-bottom: 10px;
+            margin-left: -30px;
+            margin-right: -30px;
             font-weight: 300;
         }
     }
