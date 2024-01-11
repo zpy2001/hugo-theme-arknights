@@ -8,6 +8,8 @@
 <meta name='description' content='{{ $description }}'>
 {{ with .Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
+<script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+
 {{- $title := partialCached "data/title" . .RelPermalink -}}
 <title>{{ $title }}</title>
 
