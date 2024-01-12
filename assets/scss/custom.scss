@@ -404,3 +404,102 @@ mstyle {
 	0% { transform: rotate(0deg); transform: rotate(0deg); }
 	100% { transform: rotate(360deg); transform: rotate(360deg); }
 }
+
+.top-intro {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.top-avatar {
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+}
+
+.top-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    width: 60%;
+
+    .top-site-name {
+        width: 100%;
+        color: var(--accent-color);
+        margin: 0;
+        font-size: 2rem;
+        text-align: left;
+    }
+    
+    .top-site-description {
+        width: 100%;
+        color: var(--body-text-color);
+        font-weight: normal;
+        margin-top: 5px;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        text-align: left;
+    }
+}
+
+
+.top-site-avatar {
+    position: relative;
+    margin: 0;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+
+    --sidebar-avatar-size: 100px;
+    --sidebar-element-separation: 20px;
+    --level-size: 40px;
+    --level-font-size: 20px;
+
+    .top-site-logo {
+        width: 100%;
+        height: 100%;
+        border: 2px solid var(--accent-color);
+        box-shadow: var(--shadow-l1);
+    }
+
+    .top-level {
+        position: absolute;
+        width: var(--level-size);
+        height: var(--level-size);
+        line-height: var(--level-size);
+        border-radius: 100%;
+        left: -15px;
+        top: -15px;
+        font-size: var(--level-font-size);
+        background-color: var(--card-background);
+        box-shadow: var(--shadow-l2);
+        border: 2px solid var(--yellow);
+
+        .top-level-number {
+            position: absolute;
+            top: 2px;
+            font-size: 17px;
+            color: var(--accent-color);
+            text-align: center;
+            width: 100%;
+            height: 22px;
+            line-height: 22px;
+        }
+        
+        .top-level-LV {
+            position: absolute;
+            bottom: 2px;
+            font-size: 10px;
+            color: var(--accent-color);
+            text-align: center;
+            width: 100%;
+            height: 14px;
+            line-height: 14px;
+        }
+    }
+}

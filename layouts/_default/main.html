@@ -3,6 +3,10 @@
     {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
     {{ $filtered := ($pages | intersect $notHidden) }}
     {{ $pag := .Paginate ($filtered) }}
+    
+    {{- block "intro" . -}}
+        {{ partial "head/intro.html" . }}
+    {{- end -}}
 
     <div id="div_raw" style="display: block; width: 100%;">
         <section class="article-list">

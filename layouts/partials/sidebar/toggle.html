@@ -18,17 +18,6 @@
         document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'block';
     }
 
-    document.getElementById('leftbar-toggle-left').addEventListener('click', leftToggleFunc);
-    document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
-    document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
-    document.getElementById('rightbar-toggle-right').addEventListener('click', rightToggleFunc);
-    if (window.innerWidth < 2200 ) {
-        document.getElementById('rightbar-toggle-right').style.display = 'none';
-        document.getElementById("right-sidebar").style.display = 'none';
-        document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'none';
-        document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'block';
-    }
-
     var leftBackFunc = function() {
         document.getElementById("left-sidebar").style.display = 'block';
         document.getElementById("main-inside").style.width = '55vw';
@@ -49,12 +38,65 @@
         document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'none';
     }
 
+    document.getElementById('leftbar-toggle-left').addEventListener('click', leftToggleFunc);
+    document.getElementById('rightbar-toggle-right').addEventListener('click', rightToggleFunc);
+
     document.getElementById('leftbar-toggle-right').addEventListener('click', leftBackFunc);
-    document.getElementById('leftbar-toggle-right').style.display = 'none';
     document.getElementById('rightbar-toggle-left').addEventListener('click', rightBackFunc);
-    if (window.innerWidth >= 2200 ) {
+
+    if (window.innerWidth < 1130 ) {
+        document.getElementById('leftbar-toggle-left').style.display = 'none';
+        document.getElementById('leftbar-toggle-right').style.display = 'block';
+        document.getElementById("left-sidebar").style.display = 'none';
+        document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'none';
+        document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'block';
+    }
+    else {
+        document.getElementById('leftbar-toggle-left').style.display = 'block';
+        document.getElementById('leftbar-toggle-right').style.display = 'none';
+        document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
+        document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
+    }
+    if (window.innerWidth < 2200 ) {
+        document.getElementById('rightbar-toggle-left').style.display = 'block';
+        document.getElementById('rightbar-toggle-right').style.display = 'none';
+        document.getElementById("right-sidebar").style.display = 'none';
+        document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'none';
+        document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'block';
+    }
+    else {
         document.getElementById('rightbar-toggle-left').style.display = 'none';
+        document.getElementById('rightbar-toggle-right').style.display = 'block';
         document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'block';
         document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'none';
     }
+
+    window.addEventListener('resize', function(event) {
+        if (window.innerWidth < 1130 ) {
+            document.getElementById('leftbar-toggle-left').style.display = 'none';
+            document.getElementById('leftbar-toggle-right').style.display = 'block';
+            document.getElementById("left-sidebar").style.display = 'none';
+            document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'none';
+            document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'block';
+        } else {
+            document.getElementById('leftbar-toggle-left').style.display = 'block';
+            document.getElementById('leftbar-toggle-right').style.display = 'none';
+            document.getElementById("left-sidebar").style.display = 'block';
+            document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
+            document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
+        }
+        if (window.innerWidth < 2200 ) {
+            document.getElementById('rightbar-toggle-left').style.display = 'block';
+            document.getElementById('rightbar-toggle-right').style.display = 'none';
+            document.getElementById("right-sidebar").style.display = 'none';
+            document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'none';
+            document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'block';
+        } else {
+            document.getElementById('rightbar-toggle-left').style.display = 'none';
+            document.getElementById('rightbar-toggle-right').style.display = 'block';
+            document.getElementById("right-sidebar").style.display = 'block';
+            document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'block';
+            document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'none';
+        }
+    }, true);
 </script>

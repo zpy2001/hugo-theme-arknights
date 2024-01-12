@@ -1,0 +1,38 @@
+<div class="top-intro" id="top-intro">
+    <div class="top-avatar" id="">
+        {{ with .Site.Params.sidebar.avatar }}
+        {{ if (default true .enabled) }}
+        <div style="width: 100%; display: flex; flex-direction:row; justify-content: center; align-items: center;">
+            <figure class="top-site-avatar">
+                <a href="{{ .Site.BaseURL | relLangURL }}">
+                {{ if not .local }}
+                    <img src="{{ .src }}" width="120" height="120" class="top-site-logo" loading="lazy" alt="Avatar">
+                {{ else }}
+                    {{ $avatar := resources.Get (.src) }}
+                    
+                    {{ if $avatar }}
+                        {{ $avatarResized := $avatar.Resize "120x" }}
+                        <img src="{{ $avatarResized.RelPermalink }}" width="{{ $avatarResized.Width }}"
+                            height="{{ $avatarResized.Height }}" class="top-site-logo" loading="lazy" alt="Avatar">
+                    {{ else }}
+                        {{ errorf "Failed loading avatar from %q" . }}
+                    {{ end }}
+                {{ end }}
+                </a>
+                {{ with $.Site.Params.sidebar.level }}
+                    <div class="top-level">
+                        <div class="top-level-number">{{ . }}</div>
+                        <div class="top-level-LV">LV</div>
+                    </div>
+                {{ end }}
+            </figure>
+        </div>
+        {{ end }}
+        {{ end }}
+    </div>
+
+    <div class="top-meta">
+        <h1 class="top-site-name"><a href="{{ .Site.BaseURL | relLangURL }}">Dr. {{ .Site.Params.sideBar.doctor }}</a></h1>
+        <h2 class="top-site-description">{{ .Site.Params.sidebar.subtitle | safeHTML }}</h2>
+    </div>
+</div>
