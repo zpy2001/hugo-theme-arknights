@@ -1,3 +1,4 @@
+{{ partial "notify/notify.html" }}
 <script>
     var leftToggleFunc = function() {
         document.getElementById("left-sidebar").style.display = 'none';
@@ -6,6 +7,9 @@
         document.getElementById('leftbar-toggle-right').style.display = 'block';
         document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'none';
         document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'block';
+        if (window.innerWidth < 1130 && document.getElementById("right-sidebar").style.display == 'none') {
+            document.getElementById('main-inside').style.width = '80vw';
+        }
     }
 
     var rightToggleFunc = function() {
@@ -16,6 +20,9 @@
         document.getElementById('rightbar-toggle-left').style.display = 'block';
         document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'none';
         document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'block';
+        if (window.innerWidth < 1130 && document.getElementById("left-sidebar").style.display == 'none') {
+            document.getElementById('main-inside').style.width = '80vw';
+        }
     }
 
     var leftBackFunc = function() {
@@ -25,6 +32,7 @@
         document.getElementById('leftbar-toggle-left').style.display = 'block';
         document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
         document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
+        document.getElementById('main-inside').style.width = '60vw';
     }
 
 
@@ -36,6 +44,7 @@
         document.getElementById('rightbar-toggle-right').style.display = 'block';
         document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'block';
         document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'none';
+        document.getElementById('main-inside').style.width = '60vw';
     }
 
     document.getElementById('leftbar-toggle-left').addEventListener('click', leftToggleFunc);
@@ -44,46 +53,24 @@
     document.getElementById('leftbar-toggle-right').addEventListener('click', leftBackFunc);
     document.getElementById('rightbar-toggle-left').addEventListener('click', rightBackFunc);
 
-    if (window.innerWidth < 1130 ) {
-        document.getElementById('leftbar-toggle-left').style.display = 'none';
-        document.getElementById('leftbar-toggle-right').style.display = 'block';
-        document.getElementById("left-sidebar").style.display = 'none';
-        document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'none';
-        document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'block';
-    }
-    else {
-        document.getElementById('leftbar-toggle-left').style.display = 'block';
-        document.getElementById('leftbar-toggle-right').style.display = 'none';
-        document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
-        document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
-    }
-    if (window.innerWidth < 2200 ) {
-        document.getElementById('rightbar-toggle-left').style.display = 'block';
-        document.getElementById('rightbar-toggle-right').style.display = 'none';
-        document.getElementById("right-sidebar").style.display = 'none';
-        document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'none';
-        document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'block';
-    }
-    else {
-        document.getElementById('rightbar-toggle-left').style.display = 'none';
-        document.getElementById('rightbar-toggle-right').style.display = 'block';
-        document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'block';
-        document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'none';
-    }
-
-    window.addEventListener('resize', function(event) {
+    var windowSizeFunc = function(whereCall) {
         if (window.innerWidth < 1130 ) {
+            notifyAlert("Your screen width too small, consider spin your device or stretch the window to get better experience of site functions");
             document.getElementById('leftbar-toggle-left').style.display = 'none';
             document.getElementById('leftbar-toggle-right').style.display = 'block';
             document.getElementById("left-sidebar").style.display = 'none';
             document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'none';
             document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'block';
-        } else {
+            document.getElementById('main-inside').style.width = '80vw';
+        }
+        else {
+            document.getElementById("notification-area").style.display = 'none';
             document.getElementById('leftbar-toggle-left').style.display = 'block';
             document.getElementById('leftbar-toggle-right').style.display = 'none';
             document.getElementById("left-sidebar").style.display = 'block';
             document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
             document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
+            document.getElementById('main-inside').style.width = '60vw';
         }
         if (window.innerWidth < 2200 ) {
             document.getElementById('rightbar-toggle-left').style.display = 'block';
@@ -91,12 +78,19 @@
             document.getElementById("right-sidebar").style.display = 'none';
             document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'none';
             document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'block';
-        } else {
+        }
+        else {
             document.getElementById('rightbar-toggle-left').style.display = 'none';
             document.getElementById('rightbar-toggle-right').style.display = 'block';
             document.getElementById("right-sidebar").style.display = 'block';
             document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'block';
             document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'none';
         }
+    }
+
+    windowSizeFunc(true);
+
+    window.addEventListener('resize', function(event) {
+        windowSizeFunc(false);
     }, true);
 </script>

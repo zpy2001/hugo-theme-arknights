@@ -13,6 +13,5 @@
 <script>
     var img = document.getElementById("background-img");
     let background = ["{{ $image0.RelPermalink }}", "{{ $image1.RelPermalink }}", "{{ $image2.RelPermalink }}", "{{ $image3.RelPermalink }}", "{{ $image4.RelPermalink }}", "{{ $image5.RelPermalink }}", "{{ $image6.RelPermalink }}", "{{ $image7.RelPermalink }}", "{{ $image8.RelPermalink }}", "{{ $image9.RelPermalink }}", "{{ $image10.RelPermalink }}"];
-    console.log(background);
     img.src = background[Math.floor(Math.random() * background.length)];
 </script>

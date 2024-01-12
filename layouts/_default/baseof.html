@@ -7,6 +7,24 @@
     <body class="{{ block `body-class` . }}{{ end }}" style="height: 100vh;">
         {{- partial "head/colorScheme" . -}}
         {{ partial "background/background.html" . }}
+        <div id="notification-area">
+            <div id="notification-logo">
+                <div id="notification-logo-danger" style="display:none; flex-direction:row; align-items:center; padding-right: 5px">{{ partial "helper/icon" "md-hint-danger" }}</div>
+                <div id="notification-logo-warning" style="display:none; flex-direction:row; align-items:center; padding-right: 5px">{{ partial "helper/icon" "md-hint-warning" }}</div>
+                <div id="notification-logo-success" style="display:none; flex-direction:row; align-items:center; padding-right: 5px">{{ partial "helper/icon" "md-hint-success" }}</div>
+                <div id="notification-logo-info" style="display:none; flex-direction:row; align-items:center; padding-right: 5px">{{ partial "helper/icon" "md-hint-info" }}</div>
+            </div>
+            <div id="notification-text">
+            </div>
+            <div id="notification-disappear" onclick="notificationDisappear()">
+                {{ partial "helper/icon" "close" }}
+            </div>
+            <script type="application/javascript">
+                function notificationDisappear() {
+                    document.getElementById("notification-area").style.display = "none";
+                }
+            </script>
+        </div>
 
         {{/* The container is wider when there's any activated widget */}}
         {{- $hasWidget := false -}}
@@ -26,7 +44,6 @@
                 </div>
             </main>
         </div>
-        <div id="notification-area"></div>
         {{ partial "footer/include.html" . }}
         {{ partial "color/random_color.html" . }}
         {{ partial "sakana/sakana.html" . }}

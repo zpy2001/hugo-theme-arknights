@@ -1,0 +1,61 @@
+<script>
+    function notifyLogoDisappear() {
+        document.getElementById("notification-logo-danger").style.display = 'none';
+        document.getElementById("notification-logo-info").style.display = 'none';
+        document.getElementById("notification-logo-warning").style.display = 'none';
+        document.getElementById("notification-logo-success").style.display = 'none';
+    }
+    
+    function notify(type, message){
+        (()=>{
+            let n = document.getElementById("notification-text");
+            notifyLogoDisappear();
+            document.getElementById("notification-logo-" + type).style.display = 'flex';
+            n.innerText = type + ": "+ message + "~";
+            document.getElementById("notification-area").style.zIndex = 9999;
+            document.getElementById("notification-area").style.display = 'flex';
+            document.getElementById("notification-area").className = "notification-" + type;
+            if (type == "warning") {
+                document.getElementById("notification-text").style.color = "black";
+                var svgDoc = document.getElementById("notification-disappear");
+                // get the inner element by id
+                var paths = svgDoc.querySelectorAll("path");
+                // add behaviour
+                for (i = 0; i < paths.length; i++) {
+                    paths[i].setAttribute('style', 'fill: black;');
+                }
+            }
+            else {
+                document.getElementById("notification-text").style.color = "white";
+                var svgDoc = document.getElementById("notification-disappear");
+                console.log(svgDoc);
+                // get the inner element by id
+                var paths = svgDoc.querySelectorAll("path");
+                // add behaviour
+                for (i = 0; i < paths.length; i++) {
+                    paths[i].setAttribute('style', 'fill: white;');
+                }
+            }
+        })();
+    }
+    
+    function notifyWarning(text) {
+        notify("warning", text);
+    }
+
+    function notifyAlert(text) {
+        notify("warning", text);
+    }
+
+    function notifyInfo(text) {
+        notify("info", text);
+    }
+
+    function notifyDanger(text) {
+        notify("danger", text);
+    }
+
+    function notifySuccess(text) {
+        notify("success", text);
+    }
+</script>
