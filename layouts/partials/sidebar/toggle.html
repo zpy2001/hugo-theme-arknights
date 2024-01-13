@@ -26,7 +26,7 @@
     }
 
     var leftBackFunc = function() {
-        document.getElementById("left-sidebar").style.display = 'block';
+        document.getElementById("left-sidebar").style.display = 'flex';
         document.getElementById("main-inside").style.width = '55vw';
         document.getElementById('leftbar-toggle-right').style.display = 'none';
         document.getElementById('leftbar-toggle-left').style.display = 'block';
@@ -37,7 +37,7 @@
 
 
     var rightBackFunc = function() {
-        document.getElementById("right-sidebar").style.display = 'block';
+        document.getElementById("right-sidebar").style.display = 'flex';
         document.getElementById("left-sidebar").style.maxWidth = '13vw';
         document.getElementById("left-sidebar-inside").style.width = '13vw';
         document.getElementById('rightbar-toggle-left').style.display = 'none';
@@ -67,7 +67,7 @@
             document.getElementById("notification-area").style.display = 'none';
             document.getElementById('leftbar-toggle-left').style.display = 'block';
             document.getElementById('leftbar-toggle-right').style.display = 'none';
-            document.getElementById("left-sidebar").style.display = 'block';
+            document.getElementById("left-sidebar").style.display = 'flex';
             document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
             document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
             document.getElementById('main-inside').style.width = '60vw';
@@ -82,7 +82,7 @@
         else {
             document.getElementById('rightbar-toggle-left').style.display = 'none';
             document.getElementById('rightbar-toggle-right').style.display = 'block';
-            document.getElementById("right-sidebar").style.display = 'block';
+            document.getElementById("right-sidebar").style.display = 'flex';
             document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'block';
             document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'none';
         }
