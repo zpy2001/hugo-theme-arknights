@@ -2,7 +2,6 @@
 <script>
     var leftToggleFunc = function() {
         document.getElementById("left-sidebar").style.display = 'none';
-        document.getElementById("main-inside").style.width = '70vw';
         document.getElementById('leftbar-toggle-left').style.display = 'none';
         document.getElementById('leftbar-toggle-right').style.display = 'block';
         document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'none';
@@ -10,18 +9,22 @@
         if (window.innerWidth < 1130 && document.getElementById("right-sidebar").style.display == 'none') {
             document.getElementById('main-inside').style.width = '80vw';
         }
+        if (window.innerWidth < 2200 && document.getElementById("right-sidebar").style.display == 'none') {
+            rightBackFunc();
+        }
     }
 
     var rightToggleFunc = function() {
         document.getElementById("right-sidebar").style.display = 'none';
-        document.getElementById("left-sidebar").style.maxWidth = '20vw';
-        document.getElementById("left-sidebar-inside").style.width = '20vw';
         document.getElementById('rightbar-toggle-right').style.display = 'none';
         document.getElementById('rightbar-toggle-left').style.display = 'block';
         document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'none';
         document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'block';
         if (window.innerWidth < 1130 && document.getElementById("left-sidebar").style.display == 'none') {
             document.getElementById('main-inside').style.width = '80vw';
+        }
+        if (window.innerWidth < 2200 && document.getElementById("left-sidebar").style.display == 'none') {
+            leftBackFunc();
         }
     }
 
@@ -33,18 +36,22 @@
         document.getElementById('leftbar-toggle-tooltiptext-hide').style.display = 'block';
         document.getElementById('leftbar-toggle-tooltiptext-show').style.display = 'none';
         document.getElementById('main-inside').style.width = '60vw';
+        if (window.innerWidth < 2200 && document.getElementById("right-sidebar").style.display == 'flex') {
+            rightToggleFunc();
+        }
     }
 
 
     var rightBackFunc = function() {
         document.getElementById("right-sidebar").style.display = 'flex';
-        document.getElementById("left-sidebar").style.maxWidth = '13vw';
-        document.getElementById("left-sidebar-inside").style.width = '13vw';
         document.getElementById('rightbar-toggle-left').style.display = 'none';
         document.getElementById('rightbar-toggle-right').style.display = 'block';
         document.getElementById('rightbar-toggle-tooltiptext-hide').style.display = 'block';
         document.getElementById('rightbar-toggle-tooltiptext-show').style.display = 'none';
         document.getElementById('main-inside').style.width = '60vw';
+        if (window.innerWidth < 2200 && document.getElementById("left-sidebar").style.display == 'flex') {
+            leftToggleFunc();
+        }
     }
 
     document.getElementById('leftbar-toggle-left').addEventListener('click', leftToggleFunc);
@@ -89,8 +96,11 @@
     }
 
     windowSizeFunc(true);
-
+    var prevWidth = window.innerWidth;
     window.addEventListener('resize', function(event) {
-        windowSizeFunc(false);
+        if (window.innerWidth != prevWidth ) {
+            prevWidth = window.innerWidth;
+            windowSizeFunc(false);
+        }
     }, true);
 </script>
