@@ -3,10 +3,10 @@
 
 name = "Stack"
 license = "GPL-3.0-only"
-licenselink = "https://github.com/ETOgaosion/hugo-theme-arknights/blob/master/LICENSE"
+licenselink = "https://github.com/zpy2001/hugo-theme-arknights/blob/master/LICENSE"
 description = "Arknights Theme for Hugo, based on Jimmy's Stack Theme"
-homepage = "https://github.com/ETOgaosion/hugo-theme-arknights"
-demosite = "https://etogaosion.github.io"
+homepage = "https://github.com/zpy2001/hugo-theme-arknights"
+demosite = "https://zpy2001.github.io"
 
 tags = ["blog", "responsive", "clean", "light", "dark", "personal", "arknights"]
 
@@ -23,5 +23,5 @@ features = [
 min_version = "0.118.2"
 
 [author]
-name = "BlueSpace"
-homepage = "https://etogaosion.github.io"
+name = "ZPY"
+homepage = "https://zpy2001.github.io"

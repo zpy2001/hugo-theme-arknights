@@ -2,7 +2,7 @@
 
 This is a theme based on [Hogo Theme Stack](https://github.com/CaiJimmy/hugo-theme-stack), with arknights elements.
 
-For hugo project starter, see [BlueSpace Blog Repo](https://github.com/ETOgaosion/ETOgaosion.github.io)
+For hugo project starter, see [ZPY Blog Repo](https://github.com/zpy2001/zpy2001.github.io)
 - ## TODO
   
   This theme has tons of things to implement, including below:
@@ -16,6 +16,6 @@ For hugo project starter, see [BlueSpace Blog Repo](https://github.com/ETOgaosio
   
   **Licensed under the GNU General Public License v3.0**
   
-  Please do not remove the "*Theme Arknights designed by BlueSpace based on Theme Stack designed by Jimmy*" text and link.
+  Please do not remove the "*Theme Arknights designed by ZPY based on Theme Stack designed by Jimmy*" text and link.
   
   Welcome usage.
